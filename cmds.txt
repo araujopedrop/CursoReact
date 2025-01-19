@@ -1,0 +1,1 @@
+Correr usado vite: npm run dev
