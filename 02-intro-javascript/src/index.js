@@ -1,1 +1,3 @@
-// Desestructuracion de arreglos / Asignacion desestructurante de arreglos
+//import { heroes } from './data/heroes'
+
+console.log(heroes);
