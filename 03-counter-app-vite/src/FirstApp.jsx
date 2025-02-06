@@ -53,6 +53,8 @@ export const FirstApp = () => {
 
 // ******************** Impresion de variables en el HTML ********************
 
+/*
+
 // si no se cambia el valor, ni tiene relacion con algun Hook, conviene sacar las variables fuera del functional component
 // Una ventaja es que REACT no reprocesa todo lo que este fuera de FC
 
@@ -98,3 +100,53 @@ export const FirstApp = () => {
     </>
   )
 }
+
+*/
+
+
+
+
+// ******************** Comunicacion entre componentes - Props ********************
+// Comunicacion entre componente padre e hijo. En este caso, entre <React.StrictMode> y FirstApp.
+// Props es info que fluye desde el padre al hijo
+/*
+export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
+
+  return (
+    <>
+      <h1>{ title }</h1>
+      <h1>{ subtitle }</h1>
+      <h1>{ subtitle2 + 1}</h1>
+    </>
+  )
+}
+
+*/
+
+
+// ******************** PropTypes ********************
+// Se utilizan para definir el tipo a las properties
+
+import PropTypes from 'prop-types'
+
+export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
+
+  return (
+    <>
+      <h1>{ title }</h1>
+      <h1>{ subtitle }</h1>
+      <h1>{ subtitle2 + 1}</h1>
+    </>
+  )
+}
+
+
+// title: PropTypes.string            , pide que sea String, y NO es obligatorio enviar esa prop
+// title: PropTypes.string.isRequired , pide que sea String, y es obligatorio enviar esa prop
+
+FirstApp.PropTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  subtitle2: PropTypes.number.isRequired
+}
+
