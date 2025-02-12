@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import HelloWorldApp from './HelloWorldApp'
-import {FirstApp} from './FirstApp';
+import {CounterApp} from './CounterApp';
 
 import './styles.css'
 
@@ -14,8 +14,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 */
 
 // Con props
+/*
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <FirstApp title="Hola!, soy Pedro Araujo" subtitle="12345" subtitle2={123}/>
+        <FirstApp subtitle="12345" subtitle2={123}/>
+    </React.StrictMode>
+);
+*/
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+        <CounterApp value={123}/>
     </React.StrictMode>
 );

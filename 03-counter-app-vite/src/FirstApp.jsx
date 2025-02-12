@@ -124,7 +124,7 @@ export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
 */
 
 
-// ******************** PropTypes ********************
+// ******************** PropTypes y DefaultProps ********************
 // Se utilizan para definir el tipo a las properties
 
 import PropTypes from 'prop-types'
@@ -150,3 +150,7 @@ FirstApp.PropTypes = {
   subtitle2: PropTypes.number.isRequired
 }
 
+FirstApp.defaultProps = {
+  title: 'No hay titulo',
+  subtitle: 'No hay subtitulo'
+}
