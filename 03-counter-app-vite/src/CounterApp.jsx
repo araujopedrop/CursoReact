@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 
 // 1 Manera
@@ -90,12 +91,12 @@ export const CounterApp = ( {value} ) => {
 
 // 5 Manera. Toda funcion que no tenga interaccion con los props se recomienda que se encuentre fuera del componente
 // Cuando el CounterApp se volviera a renderizar, no se reasignara espacio en memoria para handleAdd
+/*
 
 function handleAdd(event) {console.log(event) }
 
 export const CounterApp = ( {value} ) => {
 
-  
   const handleAdd2 = (event, newValue) => {console.log(newValue) }
 
   return (
@@ -114,6 +115,78 @@ export const CounterApp = ( {value} ) => {
     </>
   )
 }
+*/
+
+
+// Uso de Hooks
+/*
+export const CounterApp = ( {value} ) => {
+
+  //const [ counter, setCounter ] = useState( 0 );
+  const [ counter, setCounter ] = useState( value );
+  
+  // Cuando se llama a setCounter, se le dice a React que el estado cambio
+  // Se debe volver a ejecutar la renderizacion del componente
+
+  const handleAdd = () => {
+    //setCounter( counter + 1 )
+    //setCounter( 1000 )  
+    setCounter ( (c) => c + 1 ) // c recibe el valor de 'counter'
+  }
+
+  return (
+    <>
+      <h1>CounterApp</h1>
+      <h2>{ counter }</h2>
+
+      <button onClick={ handleAdd }>
+        +1
+      </button>
+
+
+    </>
+  )
+}
+
+*/
+
+
+// Ejercicio
+export const CounterApp = ( {value} ) => {
+
+  const [ counter, setCounter ] = useState( value );
+  
+
+  const handleAdd = () => {
+    setCounter ( (c) => c + 1 )
+  }
+
+  const handleSub = () => {
+    setCounter ( (c) => c - 1 )
+  }
+
+  const reset = () => {
+    setCounter ( value )
+  }
+
+
+  return (
+    <>
+      <h1>CounterApp</h1>
+      <h2>{ counter }</h2>
+
+      <button onClick={ handleAdd }> +1 </button>
+      <button onClick={ handleSub }> -1 </button>
+      <button onClick={ reset }> Reset </button>
+
+    </>
+  )
+}
+
+
+
+
+
 
 // title: PropTypes.string            , pide que sea String, y NO es obligatorio enviar esa prop
 // title: PropTypes.string.isRequired , pide que sea String, y es obligatorio enviar esa prop
