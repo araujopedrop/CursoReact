@@ -1,1 +1,3 @@
 Correr usado vite: npm run dev
+
+Correr los tests: npm run test
