@@ -119,7 +119,7 @@ export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
       <h1>{ subtitle2 + 1}</h1>
     </>
   )
-}
+} 
 
 */
 
@@ -127,7 +127,7 @@ export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
 // ******************** PropTypes y DefaultProps ********************
 // Se utilizan para definir el tipo a las properties
 
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 
 export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
 
@@ -135,7 +135,6 @@ export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
     <>
       <h1>{ title }</h1>
       <h1>{ subtitle }</h1>
-      <h1>{ subtitle2 + 1}</h1>
     </>
   )
 }
@@ -144,13 +143,13 @@ export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
 // title: PropTypes.string            , pide que sea String, y NO es obligatorio enviar esa prop
 // title: PropTypes.string.isRequired , pide que sea String, y es obligatorio enviar esa prop
 
-FirstApp.PropTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  subtitle2: PropTypes.number.isRequired
+FirstApp.propTypes = {
+  title: propTypes.string.isRequired,
+  subtitle: propTypes.string.isRequired,
 }
 
 FirstApp.defaultProps = {
+  //name: 'Pedro Araujo',
   title: 'No hay titulo',
   subtitle: 'No hay subtitulo'
 }
