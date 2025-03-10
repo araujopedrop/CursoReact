@@ -133,7 +133,8 @@ export const FirstApp = ( {title = 'Hola, soy Goku', subtitle, subtitle2} ) => {
 
   return (
     <>
-      <h1>{ title }</h1>
+      <div data-testid="test-title">{ title }</div>
+      <h1>{ subtitle }</h1>
       <h1>{ subtitle }</h1>
     </>
   )
