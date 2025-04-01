@@ -1,20 +1,30 @@
 import { useState } from "react";
 
-export const AddCategory = () => {
+export const AddCategory = ( {onNewCategory} ) => {
 
 
-  const [inputValue, setInputValue] = useState("One Punch")
+  const [inputValue, setInputValue] = useState('')
 
 
   // onChange={ onInputChange } es lo mismo que event => onInputChange(event)
 const onInputChange = ({target}) => {
-    console.log( target.value )
     setInputValue( target.value) 
 }
 
 const onSubmit = (event) => {
+    // Para ver los logs
     event.preventDefault();
-    console.log(inputValue);
+
+    // Validaciones: que no sea vacio
+    if (inputValue.trim().length <= 1) return;
+
+    // Aniado un nuevo valor a categories
+    //setCategories(categories => [inputValue, ...categories]);
+
+    onNewCategory( inputValue.trim() );
+
+    // Limpiamos el input value (la caja de texto donde ingresamos los datos)
+    setInputValue('');
 }
 
 
@@ -28,7 +38,6 @@ const onSubmit = (event) => {
             onChange={ onInputChange }
         />
     </form>
-
 
   )
 }

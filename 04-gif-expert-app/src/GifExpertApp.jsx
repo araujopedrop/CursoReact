@@ -6,8 +6,8 @@ export const GifExpertApp = () => {
 
     const [categories, setCategories] = useState([ 'One Punch Man', 'Dragon Ball' ]); 
 
-    const onAddCategory = () => {
-        console.log("Valorant");
+    const onAddCategory = (newCategory) => {
+        console.log(newCategory);
         // No uso el push porque mutar objetos, no se quiere mutar el estado, se quiere crear un nuevo estado
         
         // Manera 1: Hago una copia de categories y agrego el nuevo elemento usando spreed
@@ -17,7 +17,11 @@ export const GifExpertApp = () => {
         // setCategories( cat => [...cat, 'Valorant']);
 
         // Insertando al inicio
-        setCategories([ 'Valorant', ...categories]);
+        //setCategories([ 'Valorant', ...categories]);
+
+        
+        setCategories([ newCategory, ...categories]);
+
     }
 
     console.log(categories);
@@ -28,13 +32,20 @@ export const GifExpertApp = () => {
         <h1>GifExpertApp</h1>
 
         {/* Input */}
-        <AddCategory/>
+        {/* AddCategory  - propertie que se llama setCategories - referecencia a la funcion 'setCategories', que viene del hook*/}
+        {/* <AddCategory setCategories={ setCategories }/> */}
+
+
+        <AddCategory onNewCategory={ event => onAddCategory(event)}/> 
+        {/*<AddCategory onNewCategory={onAddCategory}/>*/}
+
+
 
 
 
         {/* Listado de Gifs */} 
 
-        <button aria-label="btn-AddCategory" onClick={onAddCategory}>Agregar</button>
+        {/* <button aria-label="btn-AddCategory" onClick={onAddCategory}>Agregar</button> */}
 
         <ol>
             { categories.map(category => {
