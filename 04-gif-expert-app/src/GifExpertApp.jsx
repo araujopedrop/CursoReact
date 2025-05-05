@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import { AddCategory } from './components/AddCategory'
+import { GifGrid } from './components/GIFgRID.JSX';
 
 export const GifExpertApp = () => {
 
 
-    const [categories, setCategories] = useState([ 'One Punch Man', 'Dragon Ball' ]); 
+    const [categories, setCategories] = useState([ 'One Punch Man']); 
 
     const onAddCategory = (newCategory) => {
         console.log(newCategory);
+
+
+        // Para no agregar repetidos
+        if ( categories.includes(newCategory)) return;
+
         // No uso el push porque mutar objetos, no se quiere mutar el estado, se quiere crear un nuevo estado
         
         // Manera 1: Hago una copia de categories y agrego el nuevo elemento usando spreed
@@ -28,33 +34,18 @@ export const GifExpertApp = () => {
 
     return (
     <>
-        {/* Titulo */}
         <h1>GifExpertApp</h1>
 
-        {/* Input */}
-        {/* AddCategory  - propertie que se llama setCategories - referecencia a la funcion 'setCategories', que viene del hook*/}
-        {/* <AddCategory setCategories={ setCategories }/> */}
-
-
-        <AddCategory onNewCategory={ event => onAddCategory(event)}/> 
-        {/*<AddCategory onNewCategory={onAddCategory}/>*/}
-
-
-
-
-
-        {/* Listado de Gifs */} 
-
-        {/* <button aria-label="btn-AddCategory" onClick={onAddCategory}>Agregar</button> */}
+        <AddCategory onNewCategory={ event => onAddCategory(event)}/>
 
         <ol>
-            { categories.map(category => {
-                return <li key={category}> {category} </li>
-            }) }
+            { 
+                categories.map((category) => (
+                    <GifGrid key={category} category={category}/>
+                ))
+            }
         </ol>
         
-        {/* Gif Item */}
-
     </>
     )
 }

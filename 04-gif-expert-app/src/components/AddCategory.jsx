@@ -5,27 +5,27 @@ export const AddCategory = ( {onNewCategory} ) => {
 
   const [inputValue, setInputValue] = useState('')
 
-
   // onChange={ onInputChange } es lo mismo que event => onInputChange(event)
-const onInputChange = ({target}) => {
-    setInputValue( target.value) 
-}
+  const onInputChange = ({target}) => {
+      setInputValue( target.value) 
+  }
 
-const onSubmit = (event) => {
-    // Para ver los logs
-    event.preventDefault();
+  const onSubmit = (event) => {
+      // Para ver los logs - evitar refresh del navegador
+      event.preventDefault();
 
-    // Validaciones: que no sea vacio
-    if (inputValue.trim().length <= 1) return;
+      // Validaciones: que no sea vacio
+      if (inputValue.trim().length <= 1) return;
 
-    // Aniado un nuevo valor a categories
-    //setCategories(categories => [inputValue, ...categories]);
+      // Aniado un nuevo valor a categories
+      //setCategories(categories => [inputValue, ...categories]);
 
-    onNewCategory( inputValue.trim() );
+      // Emito el valor a agregar al onNewCategory (onAddCategory) perteneciente al padre (GifExpertApp)
+      onNewCategory( inputValue.trim() );
 
-    // Limpiamos el input value (la caja de texto donde ingresamos los datos)
-    setInputValue('');
-}
+      // Limpiamos el input value (la caja de texto donde ingresamos los datos)
+      setInputValue('');
+  }
 
 
   return (
