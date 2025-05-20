@@ -1,0 +1,8 @@
+Correr usado vite: npm run dev
+
+Correr los tests: npm run test
+
+
+
+GifExpertApp:
+evMA9XB2l14Qn0Cjmzlo9wHnIdLoTSrn
